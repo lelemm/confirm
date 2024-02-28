@@ -1,0 +1,154 @@
+@import url("variables.css");
+
+body {
+    margin: 0px;
+}
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: var(--direction);
+}
+
+.mobile .container {
+    flex-direction: var(--direction-mobile);
+}
+
+.message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    color: #000000dd;
+    background-color: #ffffff55;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.mode-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: #ffffff22;
+    border-radius: 10px;
+}
+
+.mode-container img {
+    width: 5vw;
+}
+
+.dark .mode-container img {
+    filter: invert(100%) sepia(38%) saturate(26%) hue-rotate(329deg) brightness(111%) contrast(87%);
+}
+
+.light .mode-container img {
+    filter: invert(0%) sepia(56%) saturate(5133%) hue-rotate(239deg) brightness(85%) contrast(109%);
+}
+
+.message-container p {
+    text-align: center;
+    max-width: 95vw;
+    overflow: hidden;
+}
+
+.yes {
+    width: var(--size-w);
+    height: var(--size-h);
+    cursor: pointer;
+    transition: all .1s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile .yes {
+    width: var(--size-w-mobile);
+    height: var(--size-h-mobile);
+}
+
+.yes:hover {
+    filter: brightness(90%);
+}
+
+.yes p {
+    text-align: center;
+    font-size: calc(50vw * .3);
+    color: #ffffff55;
+    pointer-events: none;
+}
+
+
+.no {
+    width: var(--size-w);
+    height: var(--size-h);
+    cursor: pointer;
+    transition: all .1s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mobile .no {
+    width: var(--size-w-mobile);
+    height: var(--size-h-mobile);
+}
+
+.contracted {
+    width: var(--contracted-w);
+    height: var(--contracted-h);
+    transition: all .1s linear;
+}
+
+.mobile .contracted {
+    width: var(--contracted-w-mobile);
+    height: var(--contracted-h-mobile);
+}
+
+.expanded {
+    width: var(--expanded-w);
+    height: var(--expanded-h);
+    transition: all .1s linear;
+}
+
+.mobile .expanded {
+    width: var(--expanded-w-mobile);
+    height: var(--expanded-h-mobile);
+}
+
+.no:hover {
+    filter: brightness(90%);
+}
+
+.no p {
+    text-align: center;
+    font-size: calc(50vw * .3);
+    color: #ffffff55;
+    pointer-events: none;
+    transition: all .1s linear;
+}
+
+.contracted p {
+    text-align: center;
+    font-size: calc(10vw * .3);
+    color: #ffffff55;
+    pointer-events: none;
+    transition: all .1s linear;
+}
+
+.light .yes {
+    background-color: var(--light-yes);
+}
+
+.light .no {
+    background-color: var(--light-no);
+}
+
+.dark .yes {
+    background-color: var(--dark-yes);
+}
+
+.dark .no {
+    background-color: var(--dark-no);
+}

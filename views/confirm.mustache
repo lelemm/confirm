@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='css/confirm.css' />
+        <script src="scripts/hammer.min.js"></script>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='yes' id="yesdiv" onclick="clicked('{{link}}?{{query}}')"><p>{{yes}}</p></div>
+            <div class='no' id="nodiv" onclick="noClicked()"><p>{{no}}</p></div>
+        </div>
+        <div class='message-container'>
+            <p>{{{open_link}}}</p>
+        </div>
+        <div class='mode-container'>
+            <img src="images/lighting.svg" alt="toogle lighting mode" id="light-toogle" />
+        </div>
+        <script src="scripts/actions.js"></script>
+    </body>
+</html>
