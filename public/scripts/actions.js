@@ -29,22 +29,38 @@ lightToogle.addEventListener("click", function() {
     }
 });
 
-function registerEffect(ele, other) {
+function registerEffect(ele, other, f) {
     var mc = new Hammer(ele);
 
     mc.on("hammer.input", function(ev) {
         if(ev.eventType == 1) {
             ele.classList.add('expanded');
             other.classList.add('contracted');
+        } else if(ev.deltaTime > 2000 && ev.eventType == 2) {
+            if (ev.pointers[0].clientX >= ele.getBoundingClientRect().left && ev.pointers[0].clientX <= ele.getBoundingClientRect().right &&
+            ev.pointers[0].clientY >= ele.getBoundingClientRect().top && ev.pointers[0].clientY <= ele.getBoundingClientRect().bottom) {
+                mc.off("hammer.input");
+                f(ele.getAttribute('data-url'));
+            }  
         } else if(ev.eventType == 4) {
             ele.classList.remove('expanded');
             other.classList.remove('contracted');
+
+            if (ev.pointers[0].clientX >= ele.getBoundingClientRect().left && ev.pointers[0].clientX <= ele.getBoundingClientRect().right &&
+                ev.pointers[0].clientY >= ele.getBoundingClientRect().top && ev.pointers[0].clientY <= ele.getBoundingClientRect().bottom) {
+                    f(ele.getAttribute('data-url'));
+                }            
         }
+        console.log(JSON.stringify(ev))
      });
+
+     mc.on("press", function(ev) {
+        
+    });
 }
 
-registerEffect(yesDiv, noDiv);
-registerEffect(noDiv, yesDiv);
+registerEffect(yesDiv, noDiv, clicked);
+registerEffect(noDiv, yesDiv, noClicked);
 
 if(window.screen.height > window.screen.width) {
     document.body.classList.add('mobile');

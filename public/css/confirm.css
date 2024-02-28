@@ -112,6 +112,13 @@ body {
     transition: all .1s linear;
 }
 
+.expanded:active {
+    background-color: #00ff00 !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
 .mobile .expanded {
     width: var(--expanded-w-mobile);
     height: var(--expanded-h-mobile);

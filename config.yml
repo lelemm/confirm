@@ -13,3 +13,4 @@ strings:
   yes: SIM
   no: NÃO
   open_link: Abrir link <br/> {{link}}?
+  window_title: Confirmar abrir o link {{link}}?

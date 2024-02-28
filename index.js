@@ -5,8 +5,10 @@ const fs   = require('fs');
 const url = require('url');
 const app = express();
 const Mustache = require('mustache');
+const favicon = require('serve-favicon');
 
 app.use(express.static('public'))
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 app.engine('mustache', mustacheExpress());
 
 var lastReadTime = 0;
@@ -100,6 +102,7 @@ app.get('/:alias', (req, res) => {
         query: url_parts.query,
         yes: doc.strings.yes,
         no: doc.strings.no,
+        title: Mustache.render(doc.strings.window_title, {link: alias}),
         open_link: Mustache.render(doc.strings.open_link, {link: alias})
     })
 });
