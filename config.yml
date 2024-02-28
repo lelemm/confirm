@@ -1,0 +1,15 @@
+pages:
+  google: http://www.google.com.br
+themes:
+  light:
+    yes: '#14A44D'
+    no: '#DC4C64'
+  dark:
+    yes: '#818181'
+    no: '#161618'
+config:
+  direction: dynamic
+strings:
+  yes: SIM
+  no: NÃO
+  open_link: Abrir link <br/> {{link}}?
