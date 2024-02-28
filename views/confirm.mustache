@@ -2,11 +2,12 @@
     <head>
         <link rel='stylesheet' type='text/css' href='css/confirm.css' />
         <script src="scripts/hammer.min.js"></script>
+        <title>{{{title}}}</title>
     </head>
     <body>
         <div class='container'>
-            <div class='yes' id="yesdiv" onclick="clicked('{{link}}?{{query}}')"><p>{{yes}}</p></div>
-            <div class='no' id="nodiv" onclick="noClicked()"><p>{{no}}</p></div>
+            <div class='yes' id="yesdiv" data-url="{{link}}?{{query}}"><p>{{yes}}</p></div>
+            <div class='no' id="nodiv"><p>{{no}}</p></div>
         </div>
         <div class='message-container'>
             <p>{{{open_link}}}</p>
