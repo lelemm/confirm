@@ -46,7 +46,8 @@ function registerEffect(ele, other, f) {
             ele.classList.remove('expanded');
             other.classList.remove('contracted');
 
-            if (ev.pointers[0].clientX >= ele.getBoundingClientRect().left && ev.pointers[0].clientX <= ele.getBoundingClientRect().right &&
+            if (ev.deltaTime > 2000 && 
+                ev.pointers[0].clientX >= ele.getBoundingClientRect().left && ev.pointers[0].clientX <= ele.getBoundingClientRect().right &&
                 ev.pointers[0].clientY >= ele.getBoundingClientRect().top && ev.pointers[0].clientY <= ele.getBoundingClientRect().bottom) {
                     f(ele.getAttribute('data-url'));
                 }            
