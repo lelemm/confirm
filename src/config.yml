@@ -24,8 +24,8 @@ themes:
       no: '#ffb86c'
 config:
   direction: dynamic
-  theme: default
-#  theme: dracula
+#  theme: default
+  theme: dracula
 strings:
   yes: SIM
   no: NÃO
