@@ -6,6 +6,7 @@ const url = require('url');
 const app = express();
 const Mustache = require('mustache');
 const favicon = require('serve-favicon');
+const { ConfirmModel } = require('./models/ConfirmModel');
 
 app.use(express.static('public'))
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
@@ -19,69 +20,50 @@ app.listen(port, () => {
   console.log('Listening on port ' + port);
 });
 
-var sizeW = '50';
-var sizeH = '100';
-var expandedW = '90';
-var expandedH = '100';
-var contractedW = '10';
-var contractedH = '100';
-var directionMobile = '';
-var direction = '';
-var sizeWMobile = '50';
-var sizeHMobile = '100';
-var expandedWMobile = '90';
-var expandedHMobile = '100';
-var contractedWMobile = '10';
-var contractedHMobile = '100';
-
 app.get('/css/variables.css', (req, res) => {
     readYmlFile();
 
-    direction = doc.config.direction;
-    directionMobile = direction;
+    const confirmModel = new ConfirmModel();
+
+    confirmModel.direction = doc.config.direction;
+    confirmModel.directionMobile = confirmModel.direction;
+
+    if(doc.config.theme != 'default') {
+        confirmModel.customThemeNo = doc.themes[doc.config.theme].default.no;
+        confirmModel.customThemeYes = doc.themes[doc.config.theme].default.yes;
+        confirmModel.customThemeActiveNo = doc.themes[doc.config.theme].active.no;
+        confirmModel.customThemeActiveYes = doc.themes[doc.config.theme].active.yes;
+    }
 
     if(doc.config.direction == 'column') {
-        sizeW = '100';
-        sizeH = '50';
-        expandedH = '90';
-        expandedW = '100';
-        contractedH = '10';
-        contractedW = '100';
-        sizeWMobile = '100';
-        sizeHMobile = '50';
-        expandedHMobile = '90';
-        expandedWMobile = '100';
-        contractedHMobile = '10';
-        contractedWMobile = '100';
+        confirmModel.sizeW = '100';
+        confirmModel.sizeH = '50';
+        confirmModel.expandedH = '90';
+        confirmModel.expandedW = '100';
+        confirmModel.contractedH = '10';
+        confirmModel.contractedW = '100';
+        confirmModel.sizeWMobile = '100';
+        confirmModel.sizeHMobile = '50';
+        confirmModel.expandedHMobile = '90';
+        confirmModel.expandedWMobile = '100';
+        confirmModel.contractedHMobile = '10';
+        confirmModel.contractedWMobile = '100';
     }
     else if(doc.config.direction == 'dynamic') {
-        directionMobile = 'column';
-        direction = 'row';
+        confirmModel.directionMobile = 'column';
+        confirmModel.direction = 'row';
 
-        sizeWMobile = '100';
-        sizeHMobile = '50';
-        expandedHMobile = '90';
-        expandedWMobile = '100';
-        contractedHMobile = '10';
-        contractedWMobile = '100';
+        confirmModel.sizeWMobile = '100';
+        confirmModel.sizeHMobile = '50';
+        confirmModel.expandedHMobile = '90';
+        confirmModel.expandedWMobile = '100';
+        confirmModel.contractedHMobile = '10';
+        confirmModel.contractedWMobile = '100';
     }
 
     return res.render('variables.mustache', {
         doc,
-        sizeH,
-        sizeW,
-        expandedH,
-        expandedW,
-        contractedH,
-        contractedW,
-        direction,
-        directionMobile,
-        sizeWMobile,
-        sizeHMobile,
-        expandedHMobile,
-        expandedWMobile,
-        contractedHMobile,
-        contractedWMobile,
+        confirmModel
     })
 });
 
@@ -103,7 +85,8 @@ app.get('/:alias', (req, res) => {
         yes: doc.strings.yes,
         no: doc.strings.no,
         title: Mustache.render(doc.strings.window_title, {link: alias}),
-        open_link: Mustache.render(doc.strings.open_link, {link: alias})
+        open_link: Mustache.render(doc.strings.open_link, {link: alias}),
+        theme: doc.config.theme
     })
 });
 

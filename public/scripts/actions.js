@@ -52,7 +52,6 @@ function registerEffect(ele, other, f) {
                     f(ele.getAttribute('data-url'));
                 }            
         }
-        console.log(JSON.stringify(ev))
      });
 
      mc.on("press", function(ev) {
@@ -75,14 +74,16 @@ window.addEventListener('resize', function(event) {
     }
 }, true);
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.classList.add('dark');
-} else {
-    document.body.classList.add('light');
+if(document.body.classList.contains('default')) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.add('light');
+    }
 }
 
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    if (document.body.classList.contains('forced')) {
+    if (document.body.classList.contains('forced') || !document.body.classList.contains('default')) {
         return;
     }
 
