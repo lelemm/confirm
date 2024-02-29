@@ -26,6 +26,10 @@ body {
     pointer-events: none;
 }
 
+body:not(.default) .mode-container {
+    display: none;
+}
+
 .mode-container {
     position: fixed;
     top: 10px;
@@ -112,13 +116,6 @@ body {
     transition: all .1s linear;
 }
 
-.expanded:active {
-    background-color: #00ff00 !important;
-    transition-property: background-color;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-}
-
 .mobile .expanded {
     width: var(--expanded-w-mobile);
     height: var(--expanded-h-mobile);
@@ -152,10 +149,61 @@ body {
     background-color: var(--light-no);
 }
 
+.light .yes.expanded:active {
+    background-color: var(--active-light-yes-color) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.light .no.expanded:active {
+    background-color: var(--active-light-yes-color) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
 .dark .yes {
     background-color: var(--dark-yes);
 }
 
 .dark .no {
     background-color: var(--dark-no);
+}
+
+
+.dark .yes.expanded:active {
+    background-color: var(--active-dark-yes-color) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+.dark .no.expanded:active {
+    background-color: var(--active-dark-no-color) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+body:not(.default) .yes {
+    background-color: var(--custom-theme-yes);
+}
+
+body:not(.default) .no {
+    background-color: var(--custom-theme-no);
+}
+
+body:not(.default) .yes.expanded:active {
+    background-color: var(--active-custom-theme-yes) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+
+body:not(.default) .no.expanded:active {
+    background-color: var(--active-custom-theme-no) !important;
+    transition-property: background-color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
 }

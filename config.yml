@@ -2,13 +2,30 @@ pages:
   google: http://www.google.com.br
 themes:
   light:
-    yes: '#14A44D'
-    no: '#DC4C64'
+    default:
+      yes: '#14A44D'
+      no: '#DC4C64'
+    active:
+      yes: '#00ff00'
+      no: '#ff0000'
   dark:
-    yes: '#818181'
-    no: '#161618'
+    default:
+      yes: '#818181'
+      no: '#161618'
+    active:
+      yes: '#eeeeee'
+      no: '#888888'
+  dracula:
+    default:
+      yes: '#bd93f9'
+      no: '#282a36'
+    active:
+      yes: '#ff79c6'
+      no: '#ffb86c'
 config:
   direction: dynamic
+  theme: default
+#  theme: dracula
 strings:
   yes: SIM
   no: NÃO
