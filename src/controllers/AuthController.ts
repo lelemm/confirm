@@ -17,7 +17,8 @@ class AuthController {
         
         var url_parts = url.parse(originalUri, false);
         return res.render('confirm.mustache', {
-            link: originalUri,
+            link_yes: '/yes',
+            link_no: '/no',
             query: url_parts.query,
             yes: doc.strings.yes,
             no: doc.strings.no,
@@ -25,6 +26,14 @@ class AuthController {
             open_link: Mustache.render(doc.strings.open_link, {link: url_parts.path}),
             theme: doc.config.theme
         })
+    }
+
+    public yes(req:Request, res:Response) {
+        res.status(201);
+    }
+
+    public no(req:Request, res:Response) {
+        res.status(401);
     }
 }
 
