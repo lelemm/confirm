@@ -2,11 +2,15 @@ function clicked(url) {
     window.location = url;
 }
 
-function noClicked() {
-    if(document.body.classList.contains('dark')) {
-        window.location = 'https://blackscreen.app/';
+function noClicked(url) {
+    if(url == undefined && url == '' || url == null) {
+        if(document.body.classList.contains('dark')) {
+            window.location = 'https://blackscreen.app/';
+        } else {
+            window.location = 'about:blank';
+        }
     } else {
-        window.location = 'about:blank';
+        window.location = url;
     }
 }
 

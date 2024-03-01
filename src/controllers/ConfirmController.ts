@@ -16,7 +16,8 @@ class ConfirmController {
         }
         var url_parts = url.parse(req.url, false);
         return res.render('confirm.mustache', {
-            link: alias,
+            link_yes: alias,
+            link_no: '',
             query: url_parts.query,
             yes: doc.strings.yes,
             no: doc.strings.no,
