@@ -19,6 +19,7 @@ class AuthController {
         return res.render('confirm.mustache', {
             link_yes: '/yes',
             link_no: '/no',
+            proxy_prefix: doc.config.proxy_prefix,
             query: url_parts.query,
             yes: doc.strings.yes,
             no: doc.strings.no,
