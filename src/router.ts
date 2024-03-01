@@ -1,12 +1,19 @@
 import { Router } from "express";
 import { cssController } from "./controllers/CssController";
 import { confirmController } from "./controllers/ConfirmController";
+import { configReader } from "./helpers/ConfigReader";
+import { authController } from "./controllers/AuthController";
 
 
+let doc = configReader.getDoc();
 const router: Router = Router()
 
 //Routes
 router.get("/css/variables.css", cssController.variables);
-router.get("/:alias", confirmController.alias);
+if(doc.config.mode == 'auth') {
+    router.get("/", authController.auth);
+} else {
+    router.get("/:alias", confirmController.alias);
+}
 
 export { router };
