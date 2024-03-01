@@ -26,6 +26,7 @@ config:
   direction: dynamic
   theme: default
   mode: auth #redirect | #servercall
+  proxy_prefix: '/confirm/'
 #  theme: dracula
 strings:
   yes: SIM

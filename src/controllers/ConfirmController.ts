@@ -18,6 +18,7 @@ class ConfirmController {
         return res.render('confirm.mustache', {
             link_yes: alias,
             link_no: '',
+            proxy_prefix: '',
             query: url_parts.query,
             yes: doc.strings.yes,
             no: doc.strings.no,
