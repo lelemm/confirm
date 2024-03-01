@@ -31,6 +31,7 @@ I have some webhooks from [N8N](https://n8n.io/) that are sent to [Gotify](https
 
 # Installation
 Use [docker-compose.yml](https://github.com/lelemm/confirm/blob/main/docker-compose.yml).
+
 config.yml and views/ are not part of the docker image, so you should create a volume in the docker-compose.yml like in the example.
 
 # Usage
