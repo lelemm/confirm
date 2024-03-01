@@ -1,5 +1,6 @@
 pages:
   google: http://www.google.com.br
+mode: auth #
 themes:
   light:
     default:

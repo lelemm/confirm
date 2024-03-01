@@ -1,0 +1,9 @@
+services:
+  confirm:
+    build: ./src/.
+    ports:
+      - 8446:8000
+    restart: unless-stopped
+    volumes:
+      - ./src/config.yml:/app/config.yml
+      - ./src/views:/app/views
