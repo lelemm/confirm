@@ -26,7 +26,6 @@ themes:
 config:
   direction: dynamic
   theme: default
-  port: 8000
 #  theme: dracula
 strings:
   yes: SIM
