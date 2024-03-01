@@ -11,7 +11,7 @@ class AuthController {
         
         if(originalUri == '') {
             res.status(401);
-            return;
+            return res.json({});
         }
         
         
@@ -30,10 +30,12 @@ class AuthController {
 
     public yes(req:Request, res:Response) {
         res.status(201);
+        return res.json({});
     }
 
     public no(req:Request, res:Response) {
         res.status(401);
+        return res.json({});
     }
 }
 
