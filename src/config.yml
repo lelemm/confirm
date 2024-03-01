@@ -1,5 +1,6 @@
 pages:
   google: http://www.google.com.br
+mode: auth #
 themes:
   light:
     default:
@@ -25,6 +26,7 @@ themes:
 config:
   direction: dynamic
   theme: default
+  port: 8000
 #  theme: dracula
 strings:
   yes: SIM

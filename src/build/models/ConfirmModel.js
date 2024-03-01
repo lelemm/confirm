@@ -1,5 +1,8 @@
-class ConfirmModel {
-    constructor() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConfirmModel = void 0;
+var ConfirmModel = /** @class */ (function () {
+    function ConfirmModel() {
         this.sizeW = '50';
         this.sizeH = '100';
         this.expandedW = '90';
@@ -19,6 +22,6 @@ class ConfirmModel {
         this.customThemeActiveYes = '';
         this.customThemeActiveNo = '';
     }
-}
-
-module.exports = { ConfirmModel }
+    return ConfirmModel;
+}());
+exports.ConfirmModel = ConfirmModel;
