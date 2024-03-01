@@ -1,6 +1,5 @@
 pages:
   google: http://www.google.com.br
-mode: auth #
 themes:
   light:
     default:
@@ -26,6 +25,7 @@ themes:
 config:
   direction: dynamic
   theme: default
+  mode: auth #redirect | #servercall
 #  theme: dracula
 strings:
   yes: SIM
