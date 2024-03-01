@@ -31,3 +31,7 @@ I have some webhooks from [N8N](https://n8n.io/) that are sent to [Gotify](https
 
 # Installation
 There is a [Dockerfile](https://github.com/lelemm/confirm/blob/main/src/Dockerfile) to work with. That's how I'm using it at my domain.
+
+# Usage
+In the config.yml, you have a dictionary of pages, the key is the alias from your URL, example the key "google" will create the link http://yourhost/google that will call the link at the key of this dictionary. There is an example at the config.yml from this project. 
+[Example here](https://github.com/lelemm/confirm/blob/e47df7c246c85b526ea763efd204ace48dede1de/src/config.yml#L2)
