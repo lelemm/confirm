@@ -16,13 +16,15 @@ class ConfirmController {
         }
         var url_parts = url.parse(req.url, false);
         return res.render('confirm.mustache', {
-            link: alias,
-            query: url_parts.query,
+            link_yes: alias,
+            link_no: '',
+            proxy_prefix: '',
             yes: doc.strings.yes,
             no: doc.strings.no,
             title: Mustache.render(doc.strings.window_title, {link: alias}),
             open_link: Mustache.render(doc.strings.open_link, {link: alias}),
-            theme: doc.config.theme
+            theme: doc.config.theme,
+            mode: doc.config.mode
         })
     }
 }

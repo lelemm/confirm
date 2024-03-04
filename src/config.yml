@@ -1,6 +1,5 @@
 pages:
   google: http://www.google.com.br
-mode: auth #
 themes:
   light:
     default:
@@ -26,6 +25,10 @@ themes:
 config:
   direction: dynamic
   theme: default
+  mode: redirect #simple redirect to page, must use 'pages' from this yaml.
+  #mode: auth  #used with nginx reverse proxy, it does not use 'pages', you must configure this app as auth_request
+  #mode: servercall #not implemented yet
+  proxy_prefix: '/confirm/'
 #  theme: dracula
 strings:
   yes: SIM

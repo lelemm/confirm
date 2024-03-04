@@ -1,12 +1,45 @@
 function clicked(url) {
-    window.location = url;
+    if(document.body.classList.contains('auth')) {
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({}),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          }).then(response => {
+            if(response.redirected) {
+                var url = new URL(response.url);
+                url.searchParams.append('yes', 1);
+                window.location.href = url.toString();
+            }
+        })
+        .catch(function(err) {
+            console.info(err + " url: " + url);
+        });;        
+    } else {
+        window.location = url;
+    }
 }
 
-function noClicked() {
-    if(document.body.classList.contains('dark')) {
-        window.location = 'https://blackscreen.app/';
+function noClicked(url) {
+    if(document.body.classList.contains('auth')) {
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({}),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          });        
     } else {
-        window.location = 'about:blank';
+        if(url == undefined && url == '' || url == null) {
+            if(document.body.classList.contains('dark')) {
+                window.location = 'https://blackscreen.app/';
+            } else {
+                window.location = 'about:blank';
+            }
+        } else {
+            window.location = url;
+        }
     }
 }
 
