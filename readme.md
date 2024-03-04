@@ -43,7 +43,7 @@ You can choose between 3 modes: auth, redirect, servercall.
 
 ## Auth Mode
 This mode must be used with nginx reverse proxy. proxy example:
-```
+```nginx
         location /location_that_needs_confirmation/ {
             proxy_pass http://url/location_that_needs_confirmation/;
             auth_request /confirm/start;
@@ -60,7 +60,7 @@ This mode must be used with nginx reverse proxy. proxy example:
 ```
 
 If you change the location of "confirm" to something else, you must change the config.yml too:
-```
+```yml
 (...)
 config:
   (...)
@@ -71,7 +71,7 @@ config:
 
 ## Redirect Mode
 Simple redirect based on the pages section of the config.yml
-```
+```yml
 pages:
   google: http://www.google.com.br
 (...)
