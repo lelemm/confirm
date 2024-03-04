@@ -6,7 +6,14 @@ function clicked(url) {
             headers: {
               "Content-type": "application/json; charset=UTF-8"
             }
-          });        
+          }).then(response => {
+            if(response.redirected) {
+                window.location.href = response.url;
+            }
+        })
+        .catch(function(err) {
+            console.info(err + " url: " + url);
+        });;        
     } else {
         window.location = url;
     }
