@@ -24,7 +24,8 @@ class ConfirmController {
             no: doc.strings.no,
             title: Mustache.render(doc.strings.window_title, {link: alias}),
             open_link: Mustache.render(doc.strings.open_link, {link: alias}),
-            theme: doc.config.theme
+            theme: doc.config.theme,
+            mode: doc.config.mode
         })
     }
 }

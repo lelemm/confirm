@@ -25,7 +25,8 @@ class AuthController {
             no: doc.strings.no,
             title: Mustache.render(doc.strings.window_title, {link: url_parts.path}),
             open_link: Mustache.render(doc.strings.open_link, {link: url_parts.path}),
-            theme: doc.config.theme
+            theme: doc.config.theme,
+            mode: doc.config.mode
         })
     }
 
