@@ -40,6 +40,7 @@ class AuthController {
     }
 
     public start(req:Request, res:Response) {
+        console.log(JSON.stringify(req));
         let originalUri: string = req.header('X-Original-URI') || '';
         const current_url = new URL(originalUri);
         const search_params = current_url.searchParams;
