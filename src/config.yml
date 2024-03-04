@@ -25,9 +25,9 @@ themes:
 config:
   direction: dynamic
   theme: default
-  mode: redirect #simple redirect to page, must use 'pages' from this yaml.
-  #mode: auth  #used with nginx reverse proxy, it does not use 'pages', you must configure this app as auth_request
-  #mode: servercall #not implemented yet
+  #mode: redirect #simple redirect to page, must use 'pages' from this yaml.
+  mode: auth  #used with nginx reverse proxy, it does not use 'pages', you must configure this app as auth_request
+  callmode: servercall # || browser
   proxy_prefix: '/confirm/'
 #  theme: dracula
 strings:
@@ -35,3 +35,7 @@ strings:
   no: NÃO
   open_link: Abrir link <br/> {{link}}?
   window_title: Confirmar abrir o link {{link}}?
+servercall:
+  regex: \"Workflow was started\"
+  success_redirect: "about:blank"
+  error_redirect: "https://yahoo.com"
