@@ -40,11 +40,8 @@ class AuthController {
     }
 
     public start(req:Request, res:Response) {
-        console.log(JSON.stringify(req.headers));
-        console.log(JSON.stringify(req.url));
-        console.log(JSON.stringify(req.params));
-        let originalUri: string = req.header('X-Original-URI') || '';
-        const current_url = new URL(originalUri);
+        let originalUri: string = req.header('x-original-uri') || '';
+        const current_url = new URL("http://any.tld/" + originalUri); //prevent relative paths
         const search_params = current_url.searchParams;
 
         if(search_params.get('yes') == "1") {
