@@ -1,5 +1,5 @@
 function clicked(url) {
-    if(document.body.classList.contains('nginx')) {
+    if(document.body.classList.contains('auth')) {
         fetch(url, {
             method: "POST",
             body: JSON.stringify({}),
@@ -13,7 +13,7 @@ function clicked(url) {
 }
 
 function noClicked(url) {
-    if(document.body.classList.contains('nginx')) {
+    if(document.body.classList.contains('auth')) {
         fetch(url, {
             method: "POST",
             body: JSON.stringify({}),
