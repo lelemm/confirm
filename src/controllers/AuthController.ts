@@ -40,7 +40,11 @@ class AuthController {
     }
 
     public start(req:Request, res:Response) {
-        if(req.query.yes == "1") {
+        let originalUri: string = req.header('X-Original-URI') || '';
+        const current_url = new URL(originalUri);
+        const search_params = current_url.searchParams;
+
+        if(search_params.get('yes') == "1") {
             res.status(201);
         } else {
             res.status(401);
