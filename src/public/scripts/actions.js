@@ -1,16 +1,36 @@
 function clicked(url) {
-    window.location = url;
+    if(document.body.classList.contains('nginx')) {
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({}),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          });        
+    } else {
+        window.location = url;
+    }
 }
 
 function noClicked(url) {
-    if(url == undefined && url == '' || url == null) {
-        if(document.body.classList.contains('dark')) {
-            window.location = 'https://blackscreen.app/';
-        } else {
-            window.location = 'about:blank';
-        }
+    if(document.body.classList.contains('nginx')) {
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({}),
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            }
+          });        
     } else {
-        window.location = url;
+        if(url == undefined && url == '' || url == null) {
+            if(document.body.classList.contains('dark')) {
+                window.location = 'https://blackscreen.app/';
+            } else {
+                window.location = 'about:blank';
+            }
+        } else {
+            window.location = url;
+        }
     }
 }
 
