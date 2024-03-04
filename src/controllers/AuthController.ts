@@ -39,6 +39,15 @@ class AuthController {
         res.status(401);
         return res.json({});
     }
+
+    public start(req:Request, res:Response) {
+        if(req.query.yes == "1") {
+            res.status(201);
+        } else {
+            res.status(401);
+        }
+        return res.json({});
+    }
 }
 
 export const authController = new AuthController();
