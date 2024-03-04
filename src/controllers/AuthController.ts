@@ -17,7 +17,7 @@ class AuthController {
         
         var url_parts = url.parse(originalUri, false);
         return res.render('confirm.mustache', {
-            link_yes: '/yes',
+            link_yes: `/yes?redirect=${originalUri}`,
             link_no: '/no',
             proxy_prefix: doc.config.proxy_prefix,
             query: url_parts.query,
@@ -30,8 +30,7 @@ class AuthController {
     }
 
     public yes(req:Request, res:Response) {
-        res.status(201);
-        return res.json({});
+        res.redirect(req.params.redirect);
     }
 
     public no(req:Request, res:Response) {
