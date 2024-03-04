@@ -20,7 +20,6 @@ class AuthController {
             link_yes: `${doc.config.proxy_prefix}yes?redirect=${originalUri}`,
             link_no: '/no',
             proxy_prefix: doc.config.proxy_prefix,
-            query: url_parts.query,
             yes: doc.strings.yes,
             no: doc.strings.no,
             title: Mustache.render(doc.strings.window_title, {link: url_parts.path}),

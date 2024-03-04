@@ -8,7 +8,9 @@ function clicked(url) {
             }
           }).then(response => {
             if(response.redirected) {
-                window.location.href = `${response.url}?yes=1`;
+                var url = new URL(response.url);
+                url.searchParams.append('yes', 1);
+                window.location.href = url.toString();
             }
         })
         .catch(function(err) {
