@@ -1,20 +1,20 @@
 <html>
     <head>
-        <link rel='stylesheet' type='text/css' href='css/confirm.css' />
-        <script src="scripts/hammer.min.js"></script>
+        <link rel='stylesheet' type='text/css' href='{{proxy_prefix}}css/confirm.css' />
+        <script src="{{proxy_prefix}}scripts/hammer.min.js"></script>
         <title>{{{title}}}</title>
     </head>
-    <body class='{{theme}}'>
+    <body class='{{theme}} {{mode}}'>
         <div class='container'>
-            <div class='yes' id="yesdiv" data-url="{{link}}?{{query}}"><p>{{yes}}</p></div>
-            <div class='no' id="nodiv"><p>{{no}}</p></div>
+            <div class='yes' id="yesdiv" data-url="{{link_yes}}"><p>{{yes}}</p></div>
+            <div class='no' id="nodiv" data-url="{{link_no}}"><p>{{no}}</p></div>
         </div>
         <div class='message-container'>
             <p>{{{open_link}}}</p>
         </div>
         <div class='mode-container'>
-            <img src="images/lighting.svg" alt="toogle lighting mode" id="light-toogle" />
+            <img src="{{proxy_prefix}}images/lighting.svg" alt="toogle lighting mode" id="light-toogle" />
         </div>
-        <script src="scripts/actions.js"></script>
+        <script src="{{proxy_prefix}}scripts/actions.js"></script>
     </body>
 </html>
