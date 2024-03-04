@@ -8,7 +8,7 @@ function clicked(url) {
             }
           }).then(response => {
             if(response.redirected) {
-                window.location.href = response.url;
+                window.location.href = `${response.url}?yes=1`;
             }
         })
         .catch(function(err) {
