@@ -31,7 +31,8 @@ class AuthController {
     }
 
     public yes(req:Request, res:Response) {
-        res.redirect(req.params.redirect);
+        var url = req.query.redirect;
+        res.redirect(`${url}`);
     }
 
     public no(req:Request, res:Response) {
