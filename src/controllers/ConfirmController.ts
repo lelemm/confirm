@@ -16,7 +16,7 @@ class ConfirmController {
         }
         var url_parts = url.parse(req.url, false);
         return res.render('confirm.mustache', {
-            link_yes: alias,
+            link_yes: "servercall" == (doc.config.callmode || "browser") ? `/yes?redirect=${alias}` : alias,
             link_no: '',
             proxy_prefix: '',
             yes: doc.strings.yes,

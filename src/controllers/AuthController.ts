@@ -29,9 +29,27 @@ class AuthController {
         })
     }
 
-    public yes(req:Request, res:Response) {
-        var url = req.query.redirect;
-        res.redirect(`${url}`);
+    public async yes(req:Request, res:Response) {
+        let doc = configReader.getDoc();
+        var url = req.query.redirect?.toString() || "";
+        
+        if("servercall" == (doc.callmode || "browser")) {
+            var response = await fetch(url, {
+                method: doc.servercall.method || "GET"
+                });
+            if(res.statusCode.toString().startsWith("20")) {
+                var content = await response.text();
+                if(content.match(doc.servercall.regex)) {
+                    res.redirect(`${doc.servercall.success_redirect}`);
+                } else {
+                    res.redirect(`${doc.servercall.error_redirect}`);
+                }
+            } else {
+                res.redirect(`${doc.servercall.error_redirect}`);
+            }
+        } else {
+            res.redirect(`${url}`);
+        }
     }
 
     public no(req:Request, res:Response) {
