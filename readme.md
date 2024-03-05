@@ -7,25 +7,24 @@ I have some webhooks from [N8N](https://n8n.io/) that are sent to [Gotify](https
 # Examples
 
 ## Working Example
-![Working Example](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid1.gif 'Working example')
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid1.gif" alt="Working example" style="width:200px;"/>
 
 ## Changing from dark/light mode
-![Changing from dark/light mode](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid2.gif 'Changing from dark/light mode')
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid2.gif" alt="Changing from dark/light mode" style="width:200px;"/>
 
 ## Custom theme selected
-![Custom theme selected](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid3.gif 'Custom theme selected')
-
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/vid3.gif" alt="Custom theme selected" style="width:200px;"/>
 
 # Adaptative layout based on screen/window size
 
 ## Vertical/Mobile
-![Vertical](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/size1.png 'Vertical')
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/size1.png" alt="Vertical" style="width:200px;"/>
 
 ## Horizontal/Desktop
-![Horizontal](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/size2.png 'Horizontal')
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/size1.png" alt="Horizontal" style="width:200px;"/>
 
 # Configurable
-![Configurable](https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/config.png 'Configurable')
+<img src="https://raw.githubusercontent.com/lelemm/confirm/main/docs/images/config.png" alt="Configurable" style="width:300px;"/>
 
 [config.yml](https://github.com/lelemm/confirm/blob/main/src/config.yml)
 
