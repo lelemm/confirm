@@ -40,8 +40,16 @@ In the config.yml, you have a dictionary of pages, the key is the alias from you
 
 # Modes
 You can choose between 3 modes: auth, redirect, servercall.
+```yml
+(...)
+config:
+  (...)
+  callmode: servercall or browser
+(...)
+```
 
-## Auth Mode
+
+## Auth Mode (_config.mode=auth_)
 This mode must be used with nginx reverse proxy. proxy example:
 ```nginx
         location /location_that_needs_confirmation/ {
@@ -59,7 +67,7 @@ This mode must be used with nginx reverse proxy. proxy example:
         }
 ```
 
-If you change the location of "confirm" to something else, you must change the config.yml too:
+If you change the location of "**confirm**" (**location /confirm/** above) to something else, you must change the config.yml too:
 ```yml
 (...)
 config:
@@ -69,7 +77,7 @@ config:
 (...)  
 ```
 
-## Redirect Mode
+## Redirect Mode (_config.mode=redirect_)
 Simple redirect based on the pages section of the config.yml
 ```yml
 pages:
@@ -77,5 +85,28 @@ pages:
 (...)
 ```
 
-## Servercall (not implemented yet)
+# Call Mode
+This affects which tier calls the URL to be confirmed.
+```yml
+(...)
+config:
+  (...)
+  mode: redirect #simple redirect to page, must use 'pages' from this yaml.
+  callmode: servercall or browser
+(...)
+
+
+## Servercall (_config.callmode=servercall_)
 Instead of calling the url from the browser, it called from the server side. It checks based on regex the content to see if was OK.
+These variables must be included when using callmode=servercall:
+```yml
+(...)
+servercall:
+  regex: \"Workflow was started\"
+  success_redirect: "about:blank"
+  error_redirect: "https://yahoo.com"
+  method: "GET"
+```
+
+## Browser (_config.callmode=browser_)
+As the name says, the url is called from the client-side using the browser.
