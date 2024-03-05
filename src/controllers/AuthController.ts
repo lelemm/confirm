@@ -31,12 +31,11 @@ class AuthController {
 
     public async yes(req:Request, res:Response) {
         let doc = configReader.getDoc();
-        var url = req.query.redirect;
-        if("servercall" == doc.callmode || "browser") {
-            var response = await fetch('http://localhost', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: '{}'
+        var url = req.query.redirect?.toString() || "";
+        
+        if("servercall" == (doc.callmode || "browser")) {
+            var response = await fetch(url, {
+                method: doc.servercall.method || "GET"
                 });
             if(res.statusCode.toString().startsWith("20")) {
                 var content = await response.text();

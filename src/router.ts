@@ -3,6 +3,7 @@ import { cssController } from "./controllers/CssController";
 import { confirmController } from "./controllers/ConfirmController";
 import { configReader } from "./helpers/ConfigReader";
 import { authController } from "./controllers/AuthController";
+import { serverCallController } from "./controllers/ServerCallController";
 
 
 let doc = configReader.getDoc();
@@ -16,6 +17,7 @@ if(doc.config.mode == 'auth') {
     router.post("/no", authController.no);
     router.get("/start", authController.start);
 } else {
+    router.get("/yes", serverCallController.yes);
     router.get("/:alias", confirmController.alias);
 }
 
