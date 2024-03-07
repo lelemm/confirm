@@ -32,10 +32,10 @@ config:
   #action_type: hold
   proxy_prefix: '/confirm/'
 strings:
-  yes: SIM
-  no: NÃO
-  open_link: Abrir link <br/> {{link}}?
-  window_title: Confirmar abrir o link {{link}}?
+  yes: "Yes"
+  no: "No"
+  open_link: Open link <br/> {{link}}?
+  window_title: Confirm redirect to {{link}}?
 servercall:
   regex: \"Workflow was started\"
   success_redirect: "about:blank"
