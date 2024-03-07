@@ -11,7 +11,7 @@ const router: Router = Router()
 
 //Routes
 router.get("/css/variables.css", cssController.variables);
-if(doc.config.mode == 'auth') {
+if(doc.config?.mode == 'auth') {
     router.get("/", authController.auth);
     router.post("/yes", authController.yes);
     router.post("/no", authController.no);

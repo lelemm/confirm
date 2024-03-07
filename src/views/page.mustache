@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='{{proxy_prefix}}css/{{themecss}}' />
+        <script src="{{proxy_prefix}}scripts/hammer.min.js"></script>
+        <title>{{{title}}}</title>
+        <style type="text/css">
+            .powered {
+                position: fixed;
+                bottom: 0px;
+                left: 0px; 
+                text-align: center;
+                min-width: 100vw;
+                overflow: hidden;
+                font-size: 10px;
+                font-smooth: always;
+                color: #00000033
+            }
+            
+            .powered a {
+                color: #00000033;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .powered a:hover {
+                text-decoration: underline;
+            }        
+        </style>
+    </head>
+    <body class='{{theme}}' data-actiontype='{{action_type}}' data-authtype='{{auth_type}}'>
+        <div class='container'>
+            {{{yes_template}}}
+            {{{no_template}}}
+        </div>
+        {{{messagecontainer_template}}}
+        {{{lightingmode_template}}}
+        <p class="powered">Powered by Confirm. Get yours at <a href="https://github.com/lelemm/confirm/">github: lelemm/confirm</a></p>
+        <script src="{{proxy_prefix}}scripts/actions.js"></script>
+    </body>
+</html>
