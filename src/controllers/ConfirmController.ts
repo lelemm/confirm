@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { configReader } from "../helpers/ConfigReader";
-import url from 'url';
-import Mustache from 'mustache';
+import { themeBuilder } from "../theme/ThemeBuilder";
 
 class ConfirmController {
     
@@ -14,18 +13,11 @@ class ConfirmController {
             res.send('404 - Not found');
             return;
         }
-        var url_parts = url.parse(req.url, false);
-        return res.render('confirm.mustache', {
-            link_yes: "servercall" == (doc.config.callmode || "browser") ? `/yes?redirect=${alias}` : alias,
-            link_no: '',
-            proxy_prefix: '',
-            yes: doc.strings.yes,
-            no: doc.strings.no,
-            title: Mustache.render(doc.strings.window_title, {link: alias}),
-            open_link: Mustache.render(doc.strings.open_link, {link: alias}),
-            theme: doc.config.theme,
-            mode: doc.config.mode
-        })
+        
+        return themeBuilder.buildTheme( "servercall" == (doc.config?.callmode || "browser") ? `/yes?redirect=${alias}` : alias,
+                                        "",
+                                        alias,
+                                        res);
     }
 }
 

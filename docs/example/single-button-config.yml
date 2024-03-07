@@ -25,24 +25,23 @@ themes:
       no: '#ffb86c'
 config:
   direction: dynamic
-  mode: redirect #simple redirect to page, must use 'pages' from this yaml.
-  #mode: auth  #used with nginx reverse proxy, it does not use 'pages', you must configure this app as auth_request
-  callmode: browser
-  #callmode: servercall
-  action_type: click 
-  #action_type: hold
+  theme: default
+  mode: redirect
+  #mode: auth
+  callmode: servercall 
+  #callmode: browser
   proxy_prefix: '/confirm/'
 strings:
-  yes: SIM
-  no: NÃO
-  open_link: Abrir link <br/> {{link}}?
-  window_title: Confirmar abrir o link {{link}}?
+  yes: "GO"
+  no: "NO"
+  open_link: "Redirecting to '{{link}}'..."
+  window_title: "Confirm {{link}}"
 servercall:
   regex: \"Workflow was started\"
   success_redirect: "about:blank"
   error_redirect: "https://yahoo.com"
   method: "GET"
 layout:
-  theme: default
-  css: confirm.css
-  colors: light  
+  theme: single-button
+  css: singlebutton.css
+  colors: dracula

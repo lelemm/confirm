@@ -26,7 +26,7 @@ var ConfirmController = /** @class */ (function () {
             no: doc.strings.no,
             title: mustache_1.default.render(doc.strings.window_title, { link: alias }),
             open_link: mustache_1.default.render(doc.strings.open_link, { link: alias }),
-            theme: doc.config.theme
+            theme: doc.layout?.colors
         });
     };
     return ConfirmController;

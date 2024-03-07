@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { configReader } from "../helpers/ConfigReader";
 import url from 'url';
 import Mustache from 'mustache';
+import { themeBuilder } from "../theme/ThemeBuilder";
 
 class AuthController {
     
@@ -14,19 +15,10 @@ class AuthController {
             return res.json({});
         }
         
-        
-        var url_parts = url.parse(originalUri, false);
-        return res.render('confirm.mustache', {
-            link_yes: `${doc.config.proxy_prefix}yes?redirect=${originalUri}`,
-            link_no: '/no',
-            proxy_prefix: doc.config.proxy_prefix,
-            yes: doc.strings.yes,
-            no: doc.strings.no,
-            title: Mustache.render(doc.strings.window_title, {link: url_parts.path}),
-            open_link: Mustache.render(doc.strings.open_link, {link: url_parts.path}),
-            theme: doc.config.theme,
-            mode: doc.config.mode
-        })
+        return themeBuilder.buildTheme( `yes?redirect=${originalUri}`,
+                                        "/no",
+                                        originalUri,
+                                        res);        
     }
 
     public async yes(req:Request, res:Response) {
