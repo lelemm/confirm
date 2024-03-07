@@ -37,6 +37,14 @@ config.yml and views/ are not part of the docker image, so you should create a v
 In the config.yml, you have a dictionary of pages, the key is the alias from your URL, example the key "google" will create the link http://yourhost/google that will call the link at the key of this dictionary. There is an example at the config.yml from this project. 
 [Example here](https://github.com/lelemm/confirm/blob/e47df7c246c85b526ea763efd204ace48dede1de/src/config.yml#L2)
 
+Or if you want, you can create a file named "pages.yml" with the same struct as at config.yml:
+```yml
+pages:
+  page1: https://abc.com
+  page2: https://abc2.com
+  (...)
+```
+
 # Modes
 You can choose between 3 modes: auth, redirect, servercall.
 ```yml
@@ -109,3 +117,22 @@ servercall:
 
 ## Browser (_config.callmode=browser_)
 As the name says, the url is called from the client-side using the browser.
+
+# Layouts
+
+You don't need to use the same layouts that I created. You can create a folder at /view/name_of_layout, you can find some examples here:
+[/views](https://github.com/lelemm/confirm/tree/main/src/views)
+- Default: The one I'm using for my porpuses
+- Single-click: Hide the NO button
+- Wait: Custom layout telling the user that 'they are leaving this website'
+
+To change the layout, change this part of the config.yml:
+[config-wait.yml](https://github.com/lelemm/confirm/blob/296b122d6f324ae5ef9754d4382114f7cdf8f85a/docs/examples/config-wait.yml#L44)
+
+You have to create four files per layout:
+- **lightingmode.mustache**: This is used to show the dark/light mode button
+- **message-container.mustache**: Container of the message to show the user where they are going to
+- **no.mustache**: No button
+- **yes.mustache**: Yes button
+  
+All layouts must respect [Mustache](https://mustache.github.io/) syntax.
