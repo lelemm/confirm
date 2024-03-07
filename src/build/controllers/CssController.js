@@ -11,11 +11,11 @@ var CssController = /** @class */ (function () {
         var confirmModel = new ConfirmModel_1.ConfirmModel();
         confirmModel.direction = doc.config.direction;
         confirmModel.directionMobile = confirmModel.direction;
-        if (doc.config.theme != 'default') {
-            confirmModel.customThemeNo = doc.themes[doc.config.theme].default.no;
-            confirmModel.customThemeYes = doc.themes[doc.config.theme].default.yes;
-            confirmModel.customThemeActiveNo = doc.themes[doc.config.theme].active.no;
-            confirmModel.customThemeActiveYes = doc.themes[doc.config.theme].active.yes;
+        if (doc.layout?.colors != 'default') {
+            confirmModel.customThemeNo = doc.themes[doc.layout?.colors].default.no;
+            confirmModel.customThemeYes = doc.themes[doc.layout?.colors].default.yes;
+            confirmModel.customThemeActiveNo = doc.themes[doc.layout?.colors].active.no;
+            confirmModel.customThemeActiveYes = doc.themes[doc.layout?.colors].active.yes;
         }
         if (doc.config.direction == 'column') {
             confirmModel.sizeW = '100';
