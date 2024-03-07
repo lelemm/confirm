@@ -1,0 +1,47 @@
+pages:
+  google: http://www.google.com.br
+themes:
+  light:
+    default:
+      yes: '#14A44D'
+      no: '#DC4C64'
+    active:
+      yes: '#00ff00'
+      no: '#ff0000'
+  dark:
+    default:
+      yes: '#818181'
+      no: '#161618'
+    active:
+      yes: '#eeeeee'
+      no: '#888888'
+  dracula:
+    default:
+      yes: '#bd93f9'
+      no: '#282a36'
+    active:
+      yes: '#ff79c6'
+      no: '#ffb86c'
+config:
+  direction: dynamic
+  mode: redirect #simple redirect to page, must use 'pages' from this yaml.
+  #mode: auth  #used with nginx reverse proxy, it does not use 'pages', you must configure this app as auth_request
+  callmode: browser
+  #callmode: servercall
+  action_type: click 
+  #action_type: hold
+  proxy_prefix: '/confirm/'
+strings:
+  yes: SIM
+  no: NÃO
+  open_link: Abrir link <br/> {{link}}?
+  window_title: Confirmar abrir o link {{link}}?
+servercall:
+  regex: \"Workflow was started\"
+  success_redirect: "about:blank"
+  error_redirect: "https://yahoo.com"
+  method: "GET"
+layout:
+  theme: wait
+  css: wait.css
+  colors: light  
